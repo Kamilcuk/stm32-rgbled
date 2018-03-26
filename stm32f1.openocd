@@ -1,0 +1,12 @@
+# script for stm32f1x family
+
+source [find board/st_nucleo_f103rb.cfg]
+
+reset_config srst_only srst_nogate connect_assert_srst
+
+$_TARGETNAME configure -event gdb-attach {
+	# Needed to be able to use the connect_assert_srst in reset_config
+	# otherwise, wrong value when reading device flash size register
+	reset init
+}
+

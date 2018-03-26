@@ -1,0 +1,22 @@
+
+set(CMAKE_SYSTEM_NAME Generic)
+
+# remove -rdynamic error
+SET(CMAKE_SHARED_LIBRARY_LINK_C_FLAGS "")
+SET(CMAKE_SHARED_LIBRARY_LINK_CXX_FLAGS "")
+
+set(TOOLCHAIN_PREFIX arm-none-eabi-)
+
+set(CMAKE_ASM_COMPILER ${TOOLCHAIN_PREFIX}gcc)
+set(CMAKE_C_COMPILER   ${TOOLCHAIN_PREFIX}gcc)
+set(CMAKE_CXX_COMPILER ${TOOLCHAIN_PREFIX}g++)
+
+set(CMAKE_OBJCOPY      ${TOOLCHAIN_PREFIX}objcopy CACHE INTERNAL "objcopy tool")
+set(CMAKE_SIZE_UTIL    ${TOOLCHAIN_PREFIX}size CACHE INTERNAL "size tool")
+
+set(CMAKE_FIND_ROOT_PATH_MODE_PROGRAM NEVER)
+set(CMAKE_FIND_ROOT_PATH_MODE_LIBRARY ONLY)
+set(CMAKE_FIND_ROOT_PATH_MODE_INCLUDE ONLY)
+
+set(CORTEX_M3 "-mcpu=cortex-m3 -mthumb -fmessage-length=0 -ffunction-sections -fdata-sections -fno-common")
+
