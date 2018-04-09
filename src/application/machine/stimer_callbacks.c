@@ -4,13 +4,13 @@
  *  Created on: 4 mar 2018
  *      Author: kamil
  */
-#include "stimer.h"
-#include "../uni/rtc.h"
-#include "../mx.h"
+#include <stimer/stimer.h>
+#include <machine/hal.h>
+#include <uni/rtc.h>
 
 #include <minmaxof.h>
 
-#if 1
+#include <stdio.h>
 
 static time_t ms_armed;
 
@@ -19,17 +19,17 @@ void stimer_arm_Callback(clock_t value)
 	time_t ms = value * 1000 / CLOCKS_PER_SEC;
 	printf("%s %ld\n", __func__, value);
 	if (ms == 0) {
-		RTC_alarm_off();
+		rtc_set_alarm(0,0,0);
 	} else {
-		 RTC_alarm_set_ms(ms);
-		 ms_armed = RTC_time_ms();
+		rtc_set_alarm(0,0,ms);
+		ms_armed = rtc_time_ms(0);
 	}
 }
 
 clock_t stimer_elapsedTimeSinceLastArm_Callback()
 {
 	static volatile time_t now;
-	now = RTC_time_ms();
+	now = rtc_time_ms(0);
 	if (now < ms_armed) {
 		// time_t rollover
 		const unsigned long long nowll = now;
@@ -50,4 +50,3 @@ void stimer_IRQEnable_Callback()
 	NVIC_EnableIRQ(RTC_IRQn);
 }
 
-#endif

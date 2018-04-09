@@ -1,7 +1,7 @@
 [PreviousGenFiles]
-HeaderPath=/home/projects/allrepos/stm32-rgbled/stm32cubemx/rgbled/Inc
+HeaderPath=/home/projects/allrepos/stm32-rgbled/stm32cubemx/Inc
 HeaderFiles=gpio.h;rtc.h;tim.h;usb_device.h;usbd_conf.h;usbd_desc.h;usbd_cdc_if.h;stm32f1xx_it.h;stm32f1xx_hal_conf.h;main.h;dma.h;usart.h;
-SourcePath=/home/projects/allrepos/stm32-rgbled/stm32cubemx/rgbled/Src
+SourcePath=/home/projects/allrepos/stm32-rgbled/stm32cubemx/Src
 SourceFiles=gpio.h;rtc.h;tim.h;usb_device.h;usbd_conf.h;usbd_desc.h;usbd_cdc_if.h;stm32f1xx_it.h;stm32f1xx_hal_conf.h;main.h;gpio.c;rtc.c;tim.c;usb_device.c;usbd_conf.c;usbd_desc.c;usbd_cdc_if.c;stm32f1xx_it.c;stm32f1xx_hal_msp.c;main.c;dma.h;usart.h;dma.c;usart.c;
 
 [PreviousLibFiles]

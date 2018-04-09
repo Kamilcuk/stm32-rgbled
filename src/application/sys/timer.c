@@ -6,7 +6,8 @@
  */
 #include "timer.h"
 
-#include <machine/stimer/stimer.h>
+#include <stimer/stimer.h>
+#include <uni/cdefs.h>
 
 #include <time.h>
 #include <errno.h>
@@ -69,6 +70,7 @@ int timer_gettime(timer_t timerid, struct itimerspec *value)
 
 int timer_getoverrun (timer_t timerid)
 {
+	__USE(timerid);
 	assert(0);
 	errno = -ENOSYS;
 	return -1;

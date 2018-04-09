@@ -1,22 +1,12 @@
-/*
- * mx.h
- *
- *  Created on: 3 mar 2018
- *      Author: kamil
- */
-
-#ifndef SRC_MACHINE_MX_H_
-#define SRC_MACHINE_MX_H_
-
-#include "MX/Inc/main.h"
-#include "stm32f1xx_hal.h"
-#include "MX/Inc/rtc.h"
-#include "MX/Inc/tim.h"
-#include "MX/Inc/usb_device.h"
-#include "MX/Inc/gpio.h"
-#include "MX/Inc/usart.h"
-#include "usbd_cdc.h"
-#include "usbd_core.h"
-
-#endif /* SRC_MACHINE_MX_H_ */
-
+#include "../../../stm32cubemx/Inc/dma.h"
+#include "../../../stm32cubemx/Inc/gpio.h"
+#include "../../../stm32cubemx/Inc/main.h"
+#include "../../../stm32cubemx/Inc/rtc.h"
+#include "../../../stm32cubemx/Inc/stm32f1xx_hal_conf.h"
+#include "../../../stm32cubemx/Inc/stm32f1xx_it.h"
+#include "../../../stm32cubemx/Inc/tim.h"
+#include "../../../stm32cubemx/Inc/usart.h"
+#include "../../../stm32cubemx/Inc/usb_device.h"
+#include "../../../stm32cubemx/Inc/usbd_cdc_if.h"
+#include "../../../stm32cubemx/Inc/usbd_conf.h"
+#include "../../../stm32cubemx/Inc/usbd_desc.h"

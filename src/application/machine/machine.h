@@ -9,6 +9,6 @@
 #define SRC_APPLICATION_MACHINE_MACHINE_H_
 
 #include "mx.h"
-#include "hal.h"
+#include "machine/hal.h"
 
 #endif /* SRC_APPLICATION_MACHINE_MACHINE_H_ */

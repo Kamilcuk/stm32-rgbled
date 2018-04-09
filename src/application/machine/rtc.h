@@ -10,8 +10,8 @@
 
 #include <time.h>
 
-time_t RTC_time_ms();
-void RTC_alarm_set_ms(time_t ms);
-void RTC_alarm_off();
+time_t HW_RTC_time_ms();
+void HW_RTC_alarm_set_ms(time_t ms);
+void HW_RTC_alarm_off();
 
 #endif /* SRC_MACHINE_UNI_RTC_H_ */

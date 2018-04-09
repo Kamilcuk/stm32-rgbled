@@ -57,12 +57,12 @@ time_t RTC_clock()
 	return ticks;
 }
 
-time_t RTC_time_ms()
+time_t HW_RTC_time_ms()
 {
 	return RTC_ticks_to_ms(&hrtc, RTC_clock());
 }
 
-void RTC_alarm_set_ms(time_t delay)
+void HW_RTC_alarm_set_ms(time_t delay)
 {
 	assert(delay < 24*3600);
 	RTC_TimeTypeDef time; try( HAL_RTC_GetTime(&hrtc, &time, RTC_FORMAT_BIN) == HAL_OK );
@@ -78,7 +78,7 @@ void RTC_alarm_set_ms(time_t delay)
 	try( HAL_RTC_SetAlarm_IT(&hrtc, &sAlarm, RTC_FORMAT_BIN) == HAL_OK );
 }
 
-void RTC_alarm_off()
+void HW_RTC_alarm_off()
 {
 	try( HAL_RTC_DeactivateAlarm(&hrtc, RTC_ALARM_A) == HAL_OK );
 }

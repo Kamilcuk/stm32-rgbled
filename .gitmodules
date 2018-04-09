@@ -3,5 +3,5 @@
 	url = git@github.com:Kamilcuk/STM32Cube_FW_F1.git
 	branch = Cfiles_only
 [submodule "third_party/c-libs"]
-	path = third_party/c-libs
+	path = third_party/kamillibc
 	url = git@github.com:kamilcuk/c-libs

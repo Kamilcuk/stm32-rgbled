@@ -8,7 +8,7 @@
 #ifndef SRC_MACHINE_UNI_RTC_TIME_H_
 #define SRC_MACHINE_UNI_RTC_TIME_H_
 
-#include "hal.h"
+#include "machine/hal.h"
 
 #include <stdbool.h>
 #include <time.h>
