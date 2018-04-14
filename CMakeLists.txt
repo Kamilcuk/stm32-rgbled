@@ -6,12 +6,15 @@ include(cmake/Platform/cortex-m3.cmake)
 
 set(CMAKE_C_STANDARD 11)
 set(CMAKE_C_STANDARD_REQUIRED ON)
-string(APPEND CMAKE_C_FLAGS  " -g3 -O3 -Wall -flto -Wno-unused-parameter")
+string(APPEND CMAKE_C_FLAGS  " -g3 -O3 -Wall -Wno-unused-parameter")
 string(APPEND CMAKE_EXE_LINKER_FLAGS " -specs=nosys.specs \
 	-T ${CMAKE_SOURCE_DIR}/stm32cubemx/STM32F103C8Tx_FLASH.ld \
 	-Wl,-Map=${CMAKE_CURRENT_BINARY_DIR}/${PROJECT_NAME}.map \
 	-Wl,--print-memory-usage")
 string(APPEND CMAKE_C_STANDARD_LIBRARIES " -lm -lc -lnosys")
+
+string(APPEND CMAKE_C_FLAGS_DEBUG " -DDEBUG")
+string(APPEND CMAKE_C_FLAGS_RELEASE " -flto")
 
 add_definitions(-DSTM32F1 -DSTM32F103xB)
 
@@ -34,9 +37,6 @@ file(GLOB_RECURSE src FOLLOW_SYMLINKS
 	third_party/kamillibc/src/stm32/*.c
 	third_party/kamillibc/src/stm32/*.s
 )
-foreach(i ${src})
-	message(STATUS ${i})
-endforeach()
 file(GLOB_RECURSE hal_src FOLLOW_SYMLINKS
 	stm32cubemx/*.s
 	stm32cubemx/*.c

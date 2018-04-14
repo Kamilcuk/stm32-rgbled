@@ -5,9 +5,3 @@
  *      Author: kamil
  */
 #include <machine/hal.h>
-#include "stimer/stimer.h"
-
-void HAL_RTC_AlarmAEventCallback(RTC_HandleTypeDef *hrtc)
-{
-	stimer_IRQHandler();
-}

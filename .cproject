@@ -88,7 +88,7 @@
 							<option id="ilg.gnuarmeclipse.managedbuild.cross.option.debugging.gprof.698404024" name="Generate gprof information (-pg)" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.debugging.gprof" useByScannerDiscovery="true"/>
 							<option id="ilg.gnuarmeclipse.managedbuild.cross.option.debugging.other.564313380" name="Other debugging flags" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.debugging.other" useByScannerDiscovery="true"/>
 							<targetPlatform archList="all" binaryParser="org.eclipse.cdt.core.ELF" id="ilg.gnuarmeclipse.managedbuild.cross.targetPlatform.641205422" isAbstract="false" osList="all" superClass="ilg.gnuarmeclipse.managedbuild.cross.targetPlatform"/>
-							<builder buildPath="${workspace_loc:/stm32-rgbled}" id="ilg.gnuarmeclipse.managedbuild.cross.builder.1162949250" incrementalBuildTarget="Debug" keepEnvironmentInBuildfile="true" managedBuildOn="false" name="Gnu Make Builder" superClass="ilg.gnuarmeclipse.managedbuild.cross.builder"/>
+							<builder buildPath="${workspace_loc:/stm32-rgbled}" id="ilg.gnuarmeclipse.managedbuild.cross.builder.1162949250" incrementalBuildTarget="Debug" keepEnvironmentInBuildfile="true" managedBuildOn="false" name="Gnu Make Builder" parallelBuildOn="true" parallelizationNumber="optimal" superClass="ilg.gnuarmeclipse.managedbuild.cross.builder"/>
 							<tool id="ilg.gnuarmeclipse.managedbuild.cross.tool.assembler.1995189423" name="GNU ARM Cross Assembler" superClass="ilg.gnuarmeclipse.managedbuild.cross.tool.assembler">
 								<option id="ilg.gnuarmeclipse.managedbuild.cross.option.assembler.usepreprocessor.1052660983" name="Use preprocessor" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.assembler.usepreprocessor" useByScannerDiscovery="false" value="true" valueType="boolean"/>
 								<inputType id="ilg.gnuarmeclipse.managedbuild.cross.tool.assembler.input.325238155" superClass="ilg.gnuarmeclipse.managedbuild.cross.tool.assembler.input"/>
@@ -96,9 +96,14 @@
 							<tool id="ilg.gnuarmeclipse.managedbuild.cross.tool.c.compiler.538817252" name="GNU ARM Cross C Compiler" superClass="ilg.gnuarmeclipse.managedbuild.cross.tool.c.compiler">
 								<option id="ilg.gnuarmeclipse.managedbuild.cross.option.c.compiler.include.paths.1291494404" name="Include paths (-I)" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.c.compiler.include.paths" useByScannerDiscovery="true" valueType="includePath">
 									<listOptionValue builtIn="false" value="../src/application"/>
-									<listOptionValue builtIn="false" value="../src/clibs"/>
-									<listOptionValue builtIn="false" value="../src/MX/Inc"/>
-									<listOptionValue builtIn="false" value="../src/stm32clibs"/>
+									<listOptionValue builtIn="false" value="../third_party/kamillibc/src/stm32"/>
+									<listOptionValue builtIn="false" value="../third_party/kamillibc/src/lib"/>
+									<listOptionValue builtIn="false" value="../stm32cubemx/Inc"/>
+									<listOptionValue builtIn="false" value="../third_party/STM32Cube_FW_F1/Drivers/CMSIS/Include"/>
+									<listOptionValue builtIn="false" value="../third_party/STM32Cube_FW_F1/Drivers/CMSIS/Device/ST/STM32F1xx/Include"/>
+									<listOptionValue builtIn="false" value="../third_party/STM32Cube_FW_F1/Drivers/STM32F1xx_HAL_Driver/Inc"/>
+									<listOptionValue builtIn="false" value="../third_party/STM32Cube_FW_F1/Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc"/>
+									<listOptionValue builtIn="false" value="../third_party/STM32Cube_FW_F1/Middlewares/ST/STM32_USB_Device_Library/Core/Inc"/>
 								</option>
 								<option id="ilg.gnuarmeclipse.managedbuild.cross.option.c.compiler.defs.1455784303" name="Defined symbols (-D)" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.c.compiler.defs" useByScannerDiscovery="true" valueType="definedSymbols">
 									<listOptionValue builtIn="false" value="STM32F103xB"/>
@@ -219,14 +224,16 @@
 							<tool id="ilg.gnuarmeclipse.managedbuild.cross.tool.c.compiler.902264226" name="GNU ARM Cross C Compiler" superClass="ilg.gnuarmeclipse.managedbuild.cross.tool.c.compiler">
 								<option id="ilg.gnuarmeclipse.managedbuild.cross.option.c.compiler.include.paths.1388069549" name="Include paths (-I)" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.c.compiler.include.paths" valueType="includePath">
 									<listOptionValue builtIn="false" value="../src/application"/>
-									<listOptionValue builtIn="false" value="../src/clibs"/>
-									<listOptionValue builtIn="false" value="../src/MX/Inc"/>
-									<listOptionValue builtIn="false" value="../src/stm32clibs"/>
+									<listOptionValue builtIn="false" value="../third_party/kamillibc/src/stm32"/>
+									<listOptionValue builtIn="false" value="../third_party/kamillibc/src/lib"/>
+									<listOptionValue builtIn="false" value="../stm32cubemx/Inc"/>
+									<listOptionValue builtIn="false" value="../third_party/STM32Cube_FW_F1/Drivers/CMSIS/Include"/>
+									<listOptionValue builtIn="false" value="../third_party/STM32Cube_FW_F1/Drivers/CMSIS/Device/ST/STM32F1xx/Include"/>
+									<listOptionValue builtIn="false" value="../third_party/STM32Cube_FW_F1/Drivers/STM32F1xx_HAL_Driver/Inc"/>
 								</option>
 								<option id="ilg.gnuarmeclipse.managedbuild.cross.option.c.compiler.defs.557127917" name="Defined symbols (-D)" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.c.compiler.defs" valueType="definedSymbols">
 									<listOptionValue builtIn="false" value="STM32F103xB"/>
 									<listOptionValue builtIn="false" value="STM32F1"/>
-									<listOptionValue builtIn="false" value="DEBUG"/>
 								</option>
 								<inputType id="ilg.gnuarmeclipse.managedbuild.cross.tool.c.compiler.input.1050874584" superClass="ilg.gnuarmeclipse.managedbuild.cross.tool.c.compiler.input"/>
 							</tool>
@@ -356,7 +363,7 @@
 						</toolChain>
 					</folderInfo>
 					<sourceEntries>
-						<entry excluding="src/machine/STM32_USB_Device_Library/Class/Template|src/machine/STM32_USB_Device_Library_Class_CDC/Src/usbd_cdc_if_template.c|src/machine/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_timebase_rtc_alarm_template.c|src/machine/STM32_USB_Device_Library_Core/Src/usbd_conf_template.c|src/machine/STM32_USB_Device_Library/Class/AUDIO|src/machine/STM32_USB_Device_Library/Class/DFU|src/machine/STM32_USB_Device_Library/Class/HID|src/machine/STM32_USB_Device_Library/Class/MSC|src/machine/STM32_USB_Device_Library/Class/CustomHID|incs|src/machine/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_timebase_tim_template.c|sw4stm32|src/machine/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_msp_template.c" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name=""/>
+						<entry excluding="third_party/kamillibc|src/machine/STM32_USB_Device_Library/Class/Template|src/machine/STM32_USB_Device_Library_Class_CDC/Src/usbd_cdc_if_template.c|src/machine/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_timebase_rtc_alarm_template.c|src/machine/STM32_USB_Device_Library_Core/Src/usbd_conf_template.c|src/machine/STM32_USB_Device_Library/Class/AUDIO|src/machine/STM32_USB_Device_Library/Class/DFU|src/machine/STM32_USB_Device_Library/Class/HID|src/machine/STM32_USB_Device_Library/Class/MSC|src/machine/STM32_USB_Device_Library/Class/CustomHID|incs|src/machine/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_timebase_tim_template.c|sw4stm32|src/machine/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_msp_template.c" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name=""/>
 					</sourceEntries>
 				</configuration>
 			</storageModule>
@@ -381,16 +388,11 @@
 						<toolChain id="cdt.managedbuild.toolchain.gnu.cross.exe.release.620032193" name="Cross GCC" superClass="cdt.managedbuild.toolchain.gnu.cross.exe.release">
 							<option id="cdt.managedbuild.option.gnu.cross.prefix.177797156" name="Prefix" superClass="cdt.managedbuild.option.gnu.cross.prefix" value="arm-none-eabi-" valueType="string"/>
 							<targetPlatform archList="all" binaryParser="org.eclipse.cdt.core.ELF" id="cdt.managedbuild.targetPlatform.gnu.cross.1736828528" isAbstract="false" osList="all" superClass="cdt.managedbuild.targetPlatform.gnu.cross"/>
-							<builder buildPath="${workspace_loc:/stm32-rgbled}" id="cdt.managedbuild.builder.gnu.cross.949086735" keepEnvironmentInBuildfile="true" managedBuildOn="false" name="Gnu Make Builder" superClass="cdt.managedbuild.builder.gnu.cross"/>
+							<builder buildPath="${workspace_loc:/stm32-rgbled}" id="cdt.managedbuild.builder.gnu.cross.949086735" keepEnvironmentInBuildfile="true" managedBuildOn="false" name="Gnu Make Builder" parallelBuildOn="true" parallelizationNumber="optimal" superClass="cdt.managedbuild.builder.gnu.cross"/>
 							<tool id="cdt.managedbuild.tool.gnu.cross.c.compiler.59056864" name="Cross GCC Compiler" superClass="cdt.managedbuild.tool.gnu.cross.c.compiler">
 								<option defaultValue="gnu.c.optimization.level.most" id="gnu.c.compiler.option.optimization.level.1567502347" name="Optimization Level" superClass="gnu.c.compiler.option.optimization.level" useByScannerDiscovery="false" valueType="enumerated"/>
 								<option id="gnu.c.compiler.option.debugging.level.378428111" name="Debug Level" superClass="gnu.c.compiler.option.debugging.level" useByScannerDiscovery="false" value="gnu.c.debugging.level.none" valueType="enumerated"/>
-								<option id="gnu.c.compiler.option.include.paths.1503230600" name="Include paths (-I)" superClass="gnu.c.compiler.option.include.paths" useByScannerDiscovery="false" valueType="includePath">
-									<listOptionValue builtIn="false" value="../src/application"/>
-									<listOptionValue builtIn="false" value="../src/clibs"/>
-									<listOptionValue builtIn="false" value="../src/MX/Inc"/>
-									<listOptionValue builtIn="false" value="../src/stm32clibs"/>
-								</option>
+								<option id="gnu.c.compiler.option.include.paths.1503230600" name="Include paths (-I)" superClass="gnu.c.compiler.option.include.paths" useByScannerDiscovery="false" valueType="includePath"/>
 								<inputType id="cdt.managedbuild.tool.gnu.c.compiler.input.1254747557" superClass="cdt.managedbuild.tool.gnu.c.compiler.input"/>
 							</tool>
 							<tool id="cdt.managedbuild.tool.gnu.cross.cpp.compiler.162351849" name="Cross G++ Compiler" superClass="cdt.managedbuild.tool.gnu.cross.cpp.compiler">
@@ -411,7 +413,7 @@
 						</toolChain>
 					</folderInfo>
 					<sourceEntries>
-						<entry excluding="src/machine/STM32_USB_Device_Library/Class/Template|src/machine/STM32_USB_Device_Library_Class_CDC/Src/usbd_cdc_if_template.c|src/machine/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_timebase_rtc_alarm_template.c|src/machine/STM32_USB_Device_Library_Core/Src/usbd_conf_template.c|src/machine/STM32_USB_Device_Library/Class/AUDIO|src/machine/STM32_USB_Device_Library/Class/DFU|src/machine/STM32_USB_Device_Library/Class/HID|src/machine/STM32_USB_Device_Library/Class/MSC|src/machine/STM32_USB_Device_Library/Class/CustomHID|incs|src/machine/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_timebase_tim_template.c|sw4stm32|src/machine/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_msp_template.c" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name=""/>
+						<entry excluding="third_party/kamillibc|src/machine/STM32_USB_Device_Library/Class/Template|src/machine/STM32_USB_Device_Library_Class_CDC/Src/usbd_cdc_if_template.c|src/machine/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_timebase_rtc_alarm_template.c|src/machine/STM32_USB_Device_Library_Core/Src/usbd_conf_template.c|src/machine/STM32_USB_Device_Library/Class/AUDIO|src/machine/STM32_USB_Device_Library/Class/DFU|src/machine/STM32_USB_Device_Library/Class/HID|src/machine/STM32_USB_Device_Library/Class/MSC|src/machine/STM32_USB_Device_Library/Class/CustomHID|incs|src/machine/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_timebase_tim_template.c|sw4stm32|src/machine/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_msp_template.c" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name=""/>
 					</sourceEntries>
 				</configuration>
 			</storageModule>
