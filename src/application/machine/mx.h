@@ -1,7 +1,7 @@
+#include "../../../stm32cubemx/Inc/FreeRTOSConfig.h"
 #include "../../../stm32cubemx/Inc/dma.h"
 #include "../../../stm32cubemx/Inc/gpio.h"
 #include "../../../stm32cubemx/Inc/main.h"
-#include "../../../stm32cubemx/Inc/rtc.h"
 #include "../../../stm32cubemx/Inc/stm32f1xx_hal_conf.h"
 #include "../../../stm32cubemx/Inc/stm32f1xx_it.h"
 #include "../../../stm32cubemx/Inc/tim.h"

@@ -1,8 +1,7 @@
 /**
   ******************************************************************************
-  * File Name          : RTC.c
-  * Description        : This file provides code for the configuration
-  *                      of the RTC instances.
+  * File Name          : freertos.c
+  * Description        : Code for freertos applications
   ******************************************************************************
   * This notice applies to any and all portions of this file
   * that are not between comment pairs USER CODE BEGIN and
@@ -48,112 +47,83 @@
   */
 
 /* Includes ------------------------------------------------------------------*/
-#include "rtc.h"
+#include "FreeRTOS.h"
+#include "task.h"
+#include "cmsis_os.h"
 
-/* USER CODE BEGIN 0 */
-#include "stm32f1xx_ll_bus.h"
-#include "stm32f1xx_ll_pwr.h"
-#define HAL_RTCEx_BKUPRead(a,b) 0
-#define HAL_RTCEx_BKUPWrite(a,b,c) ((void)0)
-/* USER CODE END 0 */
+/* USER CODE BEGIN Includes */     
 
-RTC_HandleTypeDef hrtc;
+/* USER CODE END Includes */
 
-/* RTC init function */
-void MX_RTC_Init(void)
-{
-  RTC_TimeTypeDef sTime;
-  RTC_DateTypeDef DateToUpdate;
+/* Variables -----------------------------------------------------------------*/
+osThreadId defaultTaskHandle;
 
-    /**Initialize RTC Only 
-    */
-  hrtc.Instance = RTC;
-  if(HAL_RTCEx_BKUPRead(&hrtc, RTC_BKP_DR1) != 0x32F2){
-  hrtc.Init.AsynchPrediv = 127;
-  hrtc.Init.OutPut = RTC_OUTPUTSOURCE_NONE;
-  if (HAL_RTC_Init(&hrtc) != HAL_OK)
-  {
-    _Error_Handler(__FILE__, __LINE__);
-  }
+/* USER CODE BEGIN Variables */
 
-    /**Initialize RTC and set the Time and Date 
-    */
-  sTime.Hours = 1;
-  sTime.Minutes = 0;
-  sTime.Seconds = 0;
+/* USER CODE END Variables */
 
-  if (HAL_RTC_SetTime(&hrtc, &sTime, RTC_FORMAT_BIN) != HAL_OK)
-  {
-    _Error_Handler(__FILE__, __LINE__);
-  }
+/* Function prototypes -------------------------------------------------------*/
+void StartDefaultTask(void const * argument);
 
-  DateToUpdate.WeekDay = RTC_WEEKDAY_MONDAY;
-  DateToUpdate.Month = RTC_MONTH_JANUARY;
-  DateToUpdate.Date = 1;
-  DateToUpdate.Year = 0;
+extern void MX_USB_DEVICE_Init(void);
+void MX_FREERTOS_Init(void); /* (MISRA C 2004 rule 8.1) */
 
-  if (HAL_RTC_SetDate(&hrtc, &DateToUpdate, RTC_FORMAT_BIN) != HAL_OK)
-  {
-    _Error_Handler(__FILE__, __LINE__);
-  }
+/* USER CODE BEGIN FunctionPrototypes */
 
-    HAL_RTCEx_BKUPWrite(&hrtc,RTC_BKP_DR1,0x32F2);
-  }
+/* USER CODE END FunctionPrototypes */
 
+/* Hook prototypes */
+
+/* Init FreeRTOS */
+
+void MX_FREERTOS_Init(void) {
+  /* USER CODE BEGIN Init */
+       
+  /* USER CODE END Init */
+
+  /* USER CODE BEGIN RTOS_MUTEX */
+  /* add mutexes, ... */
+  /* USER CODE END RTOS_MUTEX */
+
+  /* USER CODE BEGIN RTOS_SEMAPHORES */
+  /* add semaphores, ... */
+  /* USER CODE END RTOS_SEMAPHORES */
+
+  /* USER CODE BEGIN RTOS_TIMERS */
+  /* start timers, add new ones, ... */
+  /* USER CODE END RTOS_TIMERS */
+
+  /* Create the thread(s) */
+  /* definition and creation of defaultTask */
+  osThreadDef(defaultTask, StartDefaultTask, osPriorityNormal, 0, 128);
+  defaultTaskHandle = osThreadCreate(osThread(defaultTask), NULL);
+
+  /* USER CODE BEGIN RTOS_THREADS */
+  /* add threads, ... */
+  /* USER CODE END RTOS_THREADS */
+
+  /* USER CODE BEGIN RTOS_QUEUES */
+  /* add queues, ... */
+  /* USER CODE END RTOS_QUEUES */
 }
 
-void HAL_RTC_MspInit(RTC_HandleTypeDef* rtcHandle)
+/* StartDefaultTask function */
+void StartDefaultTask(void const * argument)
 {
+  /* init code for USB_DEVICE */
+  MX_USB_DEVICE_Init();
 
-  if(rtcHandle->Instance==RTC)
+  /* USER CODE BEGIN StartDefaultTask */
+  /* Infinite loop */
+  for(;;)
   {
-  /* USER CODE BEGIN RTC_MspInit 0 */
-
-  /* USER CODE END RTC_MspInit 0 */
-    LL_PWR_EnableBkUpAccess();
-    /* Enable BKP CLK enable for backup registers */
-    LL_APB1_GRP1_EnableClock(LL_APB1_GRP1_PERIPH_BKP);
-    /* RTC clock enable */
-    __HAL_RCC_RTC_ENABLE();
-
-    /* RTC interrupt Init */
-    HAL_NVIC_SetPriority(RTC_IRQn, 0, 0);
-    HAL_NVIC_EnableIRQ(RTC_IRQn);
-  /* USER CODE BEGIN RTC_MspInit 1 */
-
-  /* USER CODE END RTC_MspInit 1 */
+    osDelay(1);
   }
+  /* USER CODE END StartDefaultTask */
 }
 
-void HAL_RTC_MspDeInit(RTC_HandleTypeDef* rtcHandle)
-{
-
-  if(rtcHandle->Instance==RTC)
-  {
-  /* USER CODE BEGIN RTC_MspDeInit 0 */
-
-  /* USER CODE END RTC_MspDeInit 0 */
-    /* Peripheral clock disable */
-    __HAL_RCC_RTC_DISABLE();
-
-    /* RTC interrupt Deinit */
-    HAL_NVIC_DisableIRQ(RTC_IRQn);
-  /* USER CODE BEGIN RTC_MspDeInit 1 */
-
-  /* USER CODE END RTC_MspDeInit 1 */
-  }
-} 
-
-/* USER CODE BEGIN 1 */
-
-/* USER CODE END 1 */
-
-/**
-  * @}
-  */
-
-/**
-  * @}
-  */
+/* USER CODE BEGIN Application */
+     
+/* USER CODE END Application */
 
 /************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/

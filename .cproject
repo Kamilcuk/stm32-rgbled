@@ -363,7 +363,7 @@
 						</toolChain>
 					</folderInfo>
 					<sourceEntries>
-						<entry excluding="third_party/kamillibc|src/machine/STM32_USB_Device_Library/Class/Template|src/machine/STM32_USB_Device_Library_Class_CDC/Src/usbd_cdc_if_template.c|src/machine/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_timebase_rtc_alarm_template.c|src/machine/STM32_USB_Device_Library_Core/Src/usbd_conf_template.c|src/machine/STM32_USB_Device_Library/Class/AUDIO|src/machine/STM32_USB_Device_Library/Class/DFU|src/machine/STM32_USB_Device_Library/Class/HID|src/machine/STM32_USB_Device_Library/Class/MSC|src/machine/STM32_USB_Device_Library/Class/CustomHID|incs|src/machine/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_timebase_tim_template.c|sw4stm32|src/machine/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_msp_template.c" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name=""/>
+						<entry excluding="src/machine/STM32_USB_Device_Library/Class/Template|src/machine/STM32_USB_Device_Library_Class_CDC/Src/usbd_cdc_if_template.c|third_party/kamillibc|src/machine/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_timebase_rtc_alarm_template.c|src/machine/STM32_USB_Device_Library_Core/Src/usbd_conf_template.c|src/machine/STM32_USB_Device_Library/Class/AUDIO|src/machine/STM32_USB_Device_Library/Class/DFU|src/machine/STM32_USB_Device_Library/Class/HID|src/machine/STM32_USB_Device_Library/Class/MSC|src/machine/STM32_USB_Device_Library/Class/CustomHID|incs|src/machine/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_timebase_tim_template.c|sw4stm32|src/machine/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_msp_template.c" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name=""/>
 					</sourceEntries>
 				</configuration>
 			</storageModule>
@@ -392,7 +392,7 @@
 							<tool id="cdt.managedbuild.tool.gnu.cross.c.compiler.59056864" name="Cross GCC Compiler" superClass="cdt.managedbuild.tool.gnu.cross.c.compiler">
 								<option defaultValue="gnu.c.optimization.level.most" id="gnu.c.compiler.option.optimization.level.1567502347" name="Optimization Level" superClass="gnu.c.compiler.option.optimization.level" useByScannerDiscovery="false" valueType="enumerated"/>
 								<option id="gnu.c.compiler.option.debugging.level.378428111" name="Debug Level" superClass="gnu.c.compiler.option.debugging.level" useByScannerDiscovery="false" value="gnu.c.debugging.level.none" valueType="enumerated"/>
-								<option id="gnu.c.compiler.option.include.paths.1503230600" name="Include paths (-I)" superClass="gnu.c.compiler.option.include.paths" useByScannerDiscovery="false" valueType="includePath"/>
+								<option id="gnu.c.compiler.option.include.paths.1503230600" name="Include paths (-I)" superClass="gnu.c.compiler.option.include.paths" useByScannerDiscovery="false"/>
 								<inputType id="cdt.managedbuild.tool.gnu.c.compiler.input.1254747557" superClass="cdt.managedbuild.tool.gnu.c.compiler.input"/>
 							</tool>
 							<tool id="cdt.managedbuild.tool.gnu.cross.cpp.compiler.162351849" name="Cross G++ Compiler" superClass="cdt.managedbuild.tool.gnu.cross.cpp.compiler">
@@ -413,7 +413,7 @@
 						</toolChain>
 					</folderInfo>
 					<sourceEntries>
-						<entry excluding="third_party/kamillibc|src/machine/STM32_USB_Device_Library/Class/Template|src/machine/STM32_USB_Device_Library_Class_CDC/Src/usbd_cdc_if_template.c|src/machine/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_timebase_rtc_alarm_template.c|src/machine/STM32_USB_Device_Library_Core/Src/usbd_conf_template.c|src/machine/STM32_USB_Device_Library/Class/AUDIO|src/machine/STM32_USB_Device_Library/Class/DFU|src/machine/STM32_USB_Device_Library/Class/HID|src/machine/STM32_USB_Device_Library/Class/MSC|src/machine/STM32_USB_Device_Library/Class/CustomHID|incs|src/machine/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_timebase_tim_template.c|sw4stm32|src/machine/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_msp_template.c" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name=""/>
+						<entry excluding="src/machine/STM32_USB_Device_Library/Class/Template|src/machine/STM32_USB_Device_Library_Class_CDC/Src/usbd_cdc_if_template.c|third_party/kamillibc|src/machine/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_timebase_rtc_alarm_template.c|src/machine/STM32_USB_Device_Library_Core/Src/usbd_conf_template.c|src/machine/STM32_USB_Device_Library/Class/AUDIO|src/machine/STM32_USB_Device_Library/Class/DFU|src/machine/STM32_USB_Device_Library/Class/HID|src/machine/STM32_USB_Device_Library/Class/MSC|src/machine/STM32_USB_Device_Library/Class/CustomHID|incs|src/machine/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_timebase_tim_template.c|sw4stm32|src/machine/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_msp_template.c" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name=""/>
 					</sourceEntries>
 				</configuration>
 			</storageModule>

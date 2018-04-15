@@ -26,7 +26,9 @@ void hw_init()
 
 	srand(HW_srand_seed());
 
-	_hw_init_std();
+	//_hw_init_std();
+	void _hw_io_init();
+	_hw_io_init();
 
 	wdg_init();
 	__HAL_RCC_CLEAR_RESET_FLAGS();

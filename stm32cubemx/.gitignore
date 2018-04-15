@@ -1,3 +1,5 @@
+.dep
+build
 .mxproject
 Makefile
 mx.scratch

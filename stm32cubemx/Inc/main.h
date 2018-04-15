@@ -75,6 +75,10 @@
 void MX_Init();
 void SystemClock_Config(void);
 
+// don't remove vTaskSwitchContext when optimizing with LTO
+// main.h is referenced by FreeRTOS/task.c
+void vTaskSwitchContext(void) __attribute__((__used__));
+
 #define _Error_Handler  MX_Error_Handler
 
 /* USER CODE END Private defines */

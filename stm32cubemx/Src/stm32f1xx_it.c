@@ -34,16 +34,20 @@
 #include "stm32f1xx_hal.h"
 #include "stm32f1xx.h"
 #include "stm32f1xx_it.h"
+#include "cmsis_os.h"
 
 /* USER CODE BEGIN 0 */
+#include <machine/uart.h>
+#include <breakpoint.h>
 /* USER CODE END 0 */
 
 /* External variables --------------------------------------------------------*/
 extern PCD_HandleTypeDef hpcd_USB_FS;
-extern RTC_HandleTypeDef hrtc;
 extern DMA_HandleTypeDef hdma_usart1_rx;
 extern DMA_HandleTypeDef hdma_usart1_tx;
 extern UART_HandleTypeDef huart1;
+
+extern TIM_HandleTypeDef htim4;
 
 /******************************************************************************/
 /*            Cortex-M3 Processor Interruption and Exception Handlers         */ 
@@ -55,7 +59,7 @@ extern UART_HandleTypeDef huart1;
 void NMI_Handler(void)
 {
   /* USER CODE BEGIN NonMaskableInt_IRQn 0 */
-	__BKPT(1);
+  breakpoint();
   /* USER CODE END NonMaskableInt_IRQn 0 */
   /* USER CODE BEGIN NonMaskableInt_IRQn 1 */
 
@@ -68,7 +72,7 @@ void NMI_Handler(void)
 void HardFault_Handler(void)
 {
   /* USER CODE BEGIN HardFault_IRQn 0 */
-	__BKPT(2);
+  breakpoint();
   /* USER CODE END HardFault_IRQn 0 */
   while (1)
   {
@@ -86,7 +90,7 @@ void HardFault_Handler(void)
 void MemManage_Handler(void)
 {
   /* USER CODE BEGIN MemoryManagement_IRQn 0 */
-	__BKPT(3);
+  breakpoint();
   /* USER CODE END MemoryManagement_IRQn 0 */
   while (1)
   {
@@ -104,7 +108,7 @@ void MemManage_Handler(void)
 void BusFault_Handler(void)
 {
   /* USER CODE BEGIN BusFault_IRQn 0 */
-	__BKPT(4);
+  breakpoint();
   /* USER CODE END BusFault_IRQn 0 */
   while (1)
   {
@@ -122,7 +126,7 @@ void BusFault_Handler(void)
 void UsageFault_Handler(void)
 {
   /* USER CODE BEGIN UsageFault_IRQn 0 */
-	__BKPT(5);
+  breakpoint();
   /* USER CODE END UsageFault_IRQn 0 */
   while (1)
   {
@@ -135,42 +139,16 @@ void UsageFault_Handler(void)
 }
 
 /**
-* @brief This function handles System service call via SWI instruction.
-*/
-void SVC_Handler(void)
-{
-  /* USER CODE BEGIN SVCall_IRQn 0 */
-	__BKPT(6);
-  /* USER CODE END SVCall_IRQn 0 */
-  /* USER CODE BEGIN SVCall_IRQn 1 */
-
-  /* USER CODE END SVCall_IRQn 1 */
-}
-
-/**
 * @brief This function handles Debug monitor.
 */
 void DebugMon_Handler(void)
 {
   /* USER CODE BEGIN DebugMonitor_IRQn 0 */
-	__BKPT(7);
+  breakpoint();
   /* USER CODE END DebugMonitor_IRQn 0 */
   /* USER CODE BEGIN DebugMonitor_IRQn 1 */
 
   /* USER CODE END DebugMonitor_IRQn 1 */
-}
-
-/**
-* @brief This function handles Pendable request for system service.
-*/
-void PendSV_Handler(void)
-{
-  /* USER CODE BEGIN PendSV_IRQn 0 */
-	__BKPT(8);
-  /* USER CODE END PendSV_IRQn 0 */
-  /* USER CODE BEGIN PendSV_IRQn 1 */
-
-  /* USER CODE END PendSV_IRQn 1 */
 }
 
 /**
@@ -181,8 +159,7 @@ void SysTick_Handler(void)
   /* USER CODE BEGIN SysTick_IRQn 0 */
 
   /* USER CODE END SysTick_IRQn 0 */
-  HAL_IncTick();
-  HAL_SYSTICK_IRQHandler();
+  osSystickHandler();
   /* USER CODE BEGIN SysTick_IRQn 1 */
 
   /* USER CODE END SysTick_IRQn 1 */
@@ -194,19 +171,6 @@ void SysTick_Handler(void)
 /* For the available peripheral interrupt handler names,                      */
 /* please refer to the startup file (startup_stm32f1xx.s).                    */
 /******************************************************************************/
-
-/**
-* @brief This function handles RTC global interrupt.
-*/
-void RTC_IRQHandler(void)
-{
-  /* USER CODE BEGIN RTC_IRQn 0 */
-  /* USER CODE END RTC_IRQn 0 */
-  HAL_RTCEx_RTCIRQHandler(&hrtc);
-  /* USER CODE BEGIN RTC_IRQn 1 */
-	HAL_RTC_AlarmIRQHandler(&hrtc);
-  /* USER CODE END RTC_IRQn 1 */
-}
 
 /**
 * @brief This function handles DMA1 channel4 global interrupt.
@@ -251,6 +215,20 @@ void USB_LP_CAN1_RX0_IRQHandler(void)
 }
 
 /**
+* @brief This function handles TIM4 global interrupt.
+*/
+void TIM4_IRQHandler(void)
+{
+  /* USER CODE BEGIN TIM4_IRQn 0 */
+
+  /* USER CODE END TIM4_IRQn 0 */
+  HAL_TIM_IRQHandler(&htim4);
+  /* USER CODE BEGIN TIM4_IRQn 1 */
+
+  /* USER CODE END TIM4_IRQn 1 */
+}
+
+/**
 * @brief This function handles USART1 global interrupt.
 */
 void USART1_IRQHandler(void)
@@ -260,7 +238,7 @@ void USART1_IRQHandler(void)
   /* USER CODE END USART1_IRQn 0 */
   HAL_UART_IRQHandler(&huart1);
   /* USER CODE BEGIN USART1_IRQn 1 */
-
+  HW_UART_IDLE_IRQHandler(&huart1);
   /* USER CODE END USART1_IRQn 1 */
 }
 

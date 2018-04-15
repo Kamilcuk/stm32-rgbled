@@ -15,7 +15,7 @@ set(CMAKE_CXX_COMPILER ${TOOLCHAIN_PREFIX}g++)
 set(CMAKE_OBJCOPY      ${TOOLCHAIN_PREFIX}objcopy CACHE INTERNAL "objcopy tool")
 set(CMAKE_SIZE_UTIL    ${TOOLCHAIN_PREFIX}size CACHE INTERNAL "size tool")
 
-SET(CORTEX_M3_CPU_FLAGS "-mthumb -mcpu=cortex-m3 -mabi=aapcs")
+SET(CORTEX_M3_CPU_FLAGS "-mthumb -mcpu=cortex-m3 ")
 SET(CORTEX_M3_GCC_FLAGS "-ffunction-sections -fdata-sections -fomit-frame-pointer -fno-unroll-loops -ffast-math -ftree-vectorize ")
 set(CMAKE_C_FLAGS   " ${CORTEX_M3_CPU_FLAGS} ${CORTEX_M3_GCC_FLAGS}" CACHE INTERNAL "c compiler flags")
 set(CMAKE_CXX_FLAGS " ${CORTEX_M3_CPU_FLAGS} ${CORTEX_M3_GCC_FLAGS}" CACHE INTERNAL "cxx compiler flags")
