@@ -15,9 +15,9 @@ void pwm_set_dutycycle(pwm_t t, float duty_cycle)
 	//printf("Setting channel %d to duty_cycle=%ld from %d\n",
 	//		t, value, (int)(duty_cycle*1000.));
 	switch(t) {
-	case 0: __HAL_TIM_SET_COMPARE(&htim1, TIM_CHANNEL_1, value); break;
-	case 1: __HAL_TIM_SET_COMPARE(&htim1, TIM_CHANNEL_2, value); break;
-	case 2: __HAL_TIM_SET_COMPARE(&htim1, TIM_CHANNEL_3, value); break;
+	case PWM_RED: __HAL_TIM_SET_COMPARE(&htim1, TIM_CHANNEL_1, value); break;
+	case PWM_BLUE: __HAL_TIM_SET_COMPARE(&htim1, TIM_CHANNEL_2, value); break;
+	case PWM_GREEN: __HAL_TIM_SET_COMPARE(&htim1, TIM_CHANNEL_3, value); break;
 	default: assert(0); break;
 	}
 }

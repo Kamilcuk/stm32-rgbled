@@ -5,7 +5,7 @@ project(rgbled ASM C)
 include(cmake/Platform/cortex-m3.cmake)
 
 set(LINKER_SCRIPT ${CMAKE_SOURCE_DIR}/stm32cubemx/STM32F103C8Tx_FLASH.ld)
-string(APPEND CMAKE_C_FLAGS  " -std=gnu11 -g3 -O3")
+string(APPEND CMAKE_C_FLAGS  " -std=gnu11 -g3 -Os")
 string(APPEND CMAKE_C_CLFAGS " -Wall -Wno-unused-parameter -Wno-nonnull-compare")
 string(APPEND CMAKE_C_FLAGS  " -flto -fno-fat-lto-objects")
 string(APPEND CMAKE_EXE_LINKER_FLAGS " -specs=nosys.specs \
